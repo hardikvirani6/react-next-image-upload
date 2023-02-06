@@ -194,13 +194,13 @@ export async function getServerSideProps() {
   await dbConnect();
 
   const result = await file.find({});
-  const pets = result.map((doc) => {
-    const pet = doc.toObject();
-    pet._id = pet._id.toString();
-    return pet;
+  const files = result.map((doc) => {
+    const file = doc.toObject();
+    file._id = file._id.toString();
+    return file;
   });
 
-  return { props: { pets: JSON.parse(JSON.stringify(pets)) } };
+  return { props: { files: JSON.parse(JSON.stringify(files)) } };
 }
 
 export default Index;
